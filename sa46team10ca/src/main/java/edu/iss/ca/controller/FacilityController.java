@@ -19,8 +19,6 @@ import edu.iss.ca.service.FacilityService;
 
 @RequestMapping(value="/facility")
 @Controller
-@Configuration
-@ComponentScan("edu.iss.ca.service")
 public class FacilityController {
 
 	@Autowired
