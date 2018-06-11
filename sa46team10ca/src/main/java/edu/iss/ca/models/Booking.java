@@ -7,7 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 @Entity
@@ -19,30 +23,34 @@ public class Booking {
 	@Column(name = "bookingid")
 	private int bookingid;
 	
-	@Column(name = "userid")
-	private User userid;
+	@ManyToOne
+	@JoinColumn(name = "userid")
+	private User user;
 	
-	@Column(name = "facilityid")
-	private Facility facilityid;
+	@ManyToOne
+	@JoinColumn(name = "facilityid")
+	private Facility facility;
 	
-	@Column(name = "timeslot")
-	private TimeSlot timeslotid;
+	@ManyToOne
+	@JoinColumn(name = "timeslotid")
+	private TimeSlot timeslot;
 	
+	@Temporal(TemporalType.DATE)
 	@Column(name = "date")
 	private Date date;
 	
-	@Column(name = "bookingcol")
+	@Column(name = "status")
 	private String status;
 	
 	public Booking() {
 	}	
 
-	public Booking(int bookingid, User userid, Facility facilityid, TimeSlot timeslotid, Date date, String status) {
+	public Booking(int bookingid, User user, Facility facility, TimeSlot timeslot, Date date, String status) {
 		super();
 		this.bookingid = bookingid;
-		this.userid = userid;
-		this.facilityid = facilityid;
-		this.timeslotid = timeslotid;
+		this.user = user;
+		this.facility = facility;
+		this.timeslot = timeslot;
 		this.date = date;
 		this.status = status;
 	}
@@ -56,27 +64,27 @@ public class Booking {
 	}
 
 	public User getUserid() {
-		return userid;
+		return user;
 	}
 
 	public void setUserid(User userid) {
-		this.userid = userid;
+		this.user = userid;
 	}
 
 	public Facility getFacilityid() {
-		return facilityid;
+		return facility;
 	}
 
 	public void setFacilityid(Facility facilityid) {
-		this.facilityid = facilityid;
+		this.facility = facilityid;
 	}
 
 	public TimeSlot getTimeslotid() {
-		return timeslotid;
+		return timeslot;
 	}
 
 	public void setTimeslotid(TimeSlot timeslotid) {
-		this.timeslotid = timeslotid;
+		this.timeslot = timeslotid;
 	}
 
 	public Date getDate() {

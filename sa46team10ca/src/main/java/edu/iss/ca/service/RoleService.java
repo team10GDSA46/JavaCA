@@ -8,7 +8,7 @@ public interface RoleService {
 	
 	ArrayList<Role> findAllRoles();
 
-	Role findRole(String roleId);
+	Role findRole(Integer roleId);
 
 	Role createRole(Role role);
 

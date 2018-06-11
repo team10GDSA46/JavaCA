@@ -3,6 +3,8 @@ package edu.iss.ca.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,6 +15,8 @@ import edu.iss.ca.service.FacilityService;
 
 @RequestMapping(value="/facility")
 @Controller
+@Configuration
+@ComponentScan("edu.iss.ca.service")
 public class FacilityController {
 
 	@Autowired

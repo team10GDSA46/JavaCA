@@ -25,7 +25,7 @@ public class RoleServiceImpl implements RoleService {
 
 	@Override
 	@Transactional
-	public Role findRole(String roleId) {
+	public Role findRole(Integer roleId) {
 		return roleRepository.findOne(roleId);
 	}
 
@@ -51,13 +51,15 @@ public class RoleServiceImpl implements RoleService {
 	@Override
 	@Transactional
 	public ArrayList<String> findAllRolesNames() {
-		return roleRepository.findAllRolesNames();
+		//return roleRepository.findAllRolesNames();
+		return null;
 	}
 
 	@Override
 	@Transactional
 	public ArrayList<Role> findRoleByName(String name) {
-		return roleRepository.findRoleByName(name);
+		//return roleRepository.findRoleByName(name);
+		return null;
 	}
 
 	

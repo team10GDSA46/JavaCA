@@ -7,35 +7,42 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
-@Table(name="booking")
+@Table(name="maintenance")
 public class Maintenance {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "bookingid")
+	@Column(name = "maintenanceid")
 	private int maintenanceid;
 	
+	@Temporal(TemporalType.DATE)
 	@Column(name = "date")
 	private Date date;
 	
-	@Column(name = "facilityid")
-	private Facility facilityid;
+	@ManyToOne
+	@JoinColumn(name = "facilityid")
+	private Facility facility;
 	
-	@Column(name = "timeslotid")
-	private int timeslotid;
+	@ManyToOne
+	@JoinColumn(name = "timeslotid")
+	private TimeSlot timeslot;
 	
 	public Maintenance() {
 	}
 
-	public Maintenance(int maintenanceid, Date date, Facility facilityid, int timeslotid) {
+	public Maintenance(int maintenanceid, Date date, Facility facility, TimeSlot timeslot) {
 		super();
 		this.maintenanceid = maintenanceid;
 		this.date = date;
-		this.facilityid = facilityid;
-		this.timeslotid = timeslotid;
+		this.facility = facility;
+		this.timeslot = timeslot;
 	}
 
 	public int getMaintenanceid() {
@@ -55,19 +62,19 @@ public class Maintenance {
 	}
 
 	public Facility getFacilityid() {
-		return facilityid;
+		return facility;
 	}
 
-	public void setFacilityid(Facility facilityid) {
-		this.facilityid = facilityid;
+	public void setFacilityid(Facility facility) {
+		this.facility = facility;
 	}
 
-	public int getTimeslotid() {
-		return timeslotid;
+	public TimeSlot getTimeslotid() {
+		return timeslot;
 	}
 
-	public void setTimeslotid(int timeslotid) {
-		this.timeslotid = timeslotid;
+	public void setTimeslotid(TimeSlot timeslot) {
+		this.timeslot = timeslot;
 	}
 	
 }
