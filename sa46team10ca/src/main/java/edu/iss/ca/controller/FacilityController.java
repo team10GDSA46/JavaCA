@@ -20,7 +20,6 @@ import edu.iss.ca.service.FacilityService;
 @RequestMapping(value="/facility")
 @Controller
 public class FacilityController {
-
 	@Autowired
 	private FacilityService fService;
 	
