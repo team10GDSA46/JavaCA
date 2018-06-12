@@ -11,7 +11,7 @@ USE sa46team10ca;
   `role` VARCHAR(45) NULL,
   `username` VARCHAR(45) NULL,
   `password` VARCHAR(45) NULL,
-  `dob` DATETIME NULL,
+  `dob` DATE NULL,
   `phone` VARCHAR(45) NULL,
   `address` VARCHAR(45) NULL,
   `email` VARCHAR(45) NULL,
@@ -31,7 +31,7 @@ CREATE TABLE `sa46team10ca`.`maintenance` (
   `maintenanceid` INT NOT NULL AUTO_INCREMENT,
   `facilityid` INT NULL,
   `timeslotid` INT NULL,
-  `date` DATETIME NULL,
+  `date` DATE NULL,
   PRIMARY KEY (`maintenanceid`),
   FOREIGN KEY (`facilityid`)
   REFERENCES `sa46team10ca`.`facility` (`facilityid`),
@@ -43,7 +43,7 @@ CREATE TABLE `sa46team10ca`.`booking` (
   `userid` INT NULL,
   `facilityid` INT NULL,
   `timeslotid` INT NULL,
-  `date` DATETIME NULL,
+  `date` DATE NULL,
   `bookingstatus` VARCHAR(45) NULL,
   PRIMARY KEY (`bookingid`),
   FOREIGN KEY (`userid`)
