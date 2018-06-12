@@ -19,10 +19,7 @@ import edu.iss.ca.service.FacilityService;
 
 @RequestMapping(value="/facility")
 @Controller
-@Configuration
-@ComponentScan("edu.iss.ca.service")
 public class FacilityController {
-
 	@Autowired
 	private FacilityService fService;
 	
@@ -46,7 +43,7 @@ public class FacilityController {
 			final RedirectAttributes redirectAttributes) {
 
 		if (result.hasErrors())
-			return new ModelAndView("employee-new");
+			return new ModelAndView("facility-new");
 
 		ModelAndView mav = new ModelAndView();
 		String message = "New facility was successfully created.";
