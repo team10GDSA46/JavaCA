@@ -30,20 +30,20 @@ public class FacilityServiceImpl implements FacilityService {
 
 	@Override
 	@Transactional
-	public Facility createFacility(Facility facName) {
-		return facilityRepository.saveAndFlush(facName);
+	public Facility createFacility(Facility facility) {
+		return facilityRepository.saveAndFlush(facility);
 	}
 
 	@Override
 	@Transactional
-	public Facility changeFacility(Facility facName) {
-		return facilityRepository.saveAndFlush(facName);
+	public Facility changeFacility(Facility facility) {
+		return facilityRepository.saveAndFlush(facility);
 	}
 
 	@Override
 	@Transactional
-	public void removeFacility(Facility facName) {
-		facilityRepository.delete(facName);
+	public void removeFacility(Facility facility) {
+		facilityRepository.delete(facility);
 		
 	}
 

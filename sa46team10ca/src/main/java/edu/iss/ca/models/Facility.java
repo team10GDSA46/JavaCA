@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -23,11 +24,16 @@ public class Facility {
 	@Column(name="name")
 	private String name;
 	
-	@OneToMany(mappedBy="facility", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	private List<Booking> bookinglist = new ArrayList<Booking>();
+//	@OneToMany(cascade=CascadeType.ALL)
+//	@JoinColumn(name = "facilityid")
+//	private List<Booking> bookinglist = new ArrayList<Booking>();
 	
-	@OneToMany(mappedBy="facility", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name = "facilityid")
 	private List<Maintenance> maintenancelist = new ArrayList<Maintenance>();
+	
+/*	@OneToMany(mappedBy="facility", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	private List<Maintenance> maintenancelist = new ArrayList<Maintenance>();*/
 	
 	public Facility() {}
 	
