@@ -1,4 +1,4 @@
-package edu.iss.ca.controller;
+ 	package edu.iss.ca.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -30,6 +30,7 @@ import edu.iss.ca.models.TimeSlot;
 import edu.iss.ca.service.BookingService;
 import edu.iss.ca.service.FacilityService;
 import edu.iss.ca.service.TimeSlotService;
+import edu.iss.ca.controller.CommonController;
 
 @RequestMapping(value="/facility")
 @Controller
@@ -223,10 +224,11 @@ public class FacilityController {
 	@RequestMapping(value = "/booking/process", method = RequestMethod.POST)
 	public ModelAndView testing(@ModelAttribute Booking booking, BindingResult result,
 			final RedirectAttributes redirectAttributes,
-			@RequestParam("ts") int[] tsIds) throws Exception {
+			@RequestParam("ts") int[] tsIds, HttpSession session) throws Exception {
 		try
 		{
 			ArrayList<TimeSlot> ts = new ArrayList<TimeSlot>();
+			UserSession us = (UserSession) session.getAttribute("USERSESSION");
 			for(int id : tsIds) {
 				TimeSlot t = tsService.findTimeSlot(id);
 				ts.add(t);
@@ -234,13 +236,13 @@ public class FacilityController {
 			
 			for(TimeSlot x : ts) {
 				Booking multi = 
-						new Booking(null, booking.getFacility(), 
+						new Booking(us.getUser(), booking.getFacility(), 
 						booking.getTimeslot(), booking.getStatus());
 				multi.setDate(booking.getDate());
 				multi.setTimeslot(x);
 				bService.createBooking(multi);
 			}
-			ModelAndView mav = new ModelAndView("booking-history");
+			ModelAndView mav = new ModelAndView("redirect:/facility/booking/history");
 			return mav;
 		}
 		
@@ -287,11 +289,14 @@ public class FacilityController {
 	}
 	
 	@RequestMapping(value="/booking/history",method=RequestMethod.GET)
-	public ModelAndView bookingHistory()
+	public ModelAndView bookingHistory(HttpSession session)
 	{
 		//int userid = 1;
 		ModelAndView mav = new ModelAndView("booking-history");
-		ArrayList<Booking> history = bService.findHistoryByUser(1);
+		//add the session code here
+		UserSession us = (UserSession) session.getAttribute("USERSESSION");
+		
+		ArrayList<Booking> history = bService.findHistoryByUser(us.getUser().getUserid());
 		mav.addObject("history", history);
 		return mav;
 	}
