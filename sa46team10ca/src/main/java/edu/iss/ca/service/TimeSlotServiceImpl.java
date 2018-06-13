@@ -49,5 +49,4 @@ public class TimeSlotServiceImpl implements TimeSlotService {
 		timeSlotRepository.delete(timeSlot);
 		
 	}
-
 }

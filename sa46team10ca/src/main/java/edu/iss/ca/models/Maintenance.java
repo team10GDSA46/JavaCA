@@ -26,6 +26,14 @@ public class Maintenance {
 	@Column(name = "date")
 	private Date date;
 	
+	public TimeSlot getTimeslot() {
+		return timeslot;
+	}
+
+	public void setTimeslot(TimeSlot timeslot) {
+		this.timeslot = timeslot;
+	}
+
 	@ManyToOne
 	@JoinColumn(name = "facilityid")
 	private Facility facility;

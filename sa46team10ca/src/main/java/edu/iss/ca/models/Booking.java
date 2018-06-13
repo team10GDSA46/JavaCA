@@ -13,19 +13,21 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 
 @Entity
 @Table(name="booking")
 public class Booking {
-	
+
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "bookingid")
 	private int bookingid;
 	
-	@ManyToOne
-	@JoinColumn(name = "userid")
-	private User user;
+//	@ManyToOne
+//	@JoinColumn(name = "userid")
+//	private User user;
 	
 	@ManyToOne
 	@JoinColumn(name = "facilityid")
@@ -36,6 +38,7 @@ public class Booking {
 	private TimeSlot timeslot;
 	
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern= "dd/MM/yyyy" )
 	@Column(name = "date")
 	private Date date;
 	
@@ -43,16 +46,44 @@ public class Booking {
 	private String status;
 	
 	public Booking() {
+		super();
+		this.date = new Date();
+		this.status = "ACTIVE";
 	}	
 
-	public Booking(int bookingid, User user, Facility facility, TimeSlot timeslot, Date date, String status) {
+	public Booking(User user, Facility facility, TimeSlot timeslot, String status) {
 		super();
 		this.bookingid = bookingid;
-		this.user = user;
+//		this.user = user;
+		this.facility = facility;
+		this.timeslot = timeslot;
+		this.status = status;
+	}
+	
+	public Booking(User user, Facility facility, TimeSlot timeslot, Date date, String status) {
+		super();
+		this.bookingid = bookingid;
+//		this.user = user;
 		this.facility = facility;
 		this.timeslot = timeslot;
 		this.date = date;
 		this.status = status;
+	}
+
+	public Facility getFacility() {
+		return facility;
+	}
+
+	public TimeSlot getTimeslot() {
+		return timeslot;
+	}
+
+	public void setTimeslot(TimeSlot timeslot) {
+		this.timeslot = timeslot;
+	}
+
+	public void setFacility(Facility facility) {
+		this.facility = facility;
 	}
 
 	public int getBookingid() {
@@ -63,29 +94,13 @@ public class Booking {
 		this.bookingid = bookingid;
 	}
 
-	public User getUserid() {
-		return user;
-	}
-
-	public void setUserid(User userid) {
-		this.user = userid;
-	}
-
-	public Facility getFacilityid() {
-		return facility;
-	}
-
-	public void setFacilityid(Facility facilityid) {
-		this.facility = facilityid;
-	}
-
-	public TimeSlot getTimeslotid() {
-		return timeslot;
-	}
-
-	public void setTimeslotid(TimeSlot timeslotid) {
-		this.timeslot = timeslotid;
-	}
+//	public User getUserid() {
+//		return user;
+//	}
+//
+//	public void setUserid(User userid) {
+//		this.user = userid;
+//	}
 
 	public Date getDate() {
 		return date;

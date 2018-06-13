@@ -4,11 +4,13 @@ import java.util.ArrayList;
 
 import javax.annotation.Resource;
 
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import edu.iss.ca.models.Booking;
 import edu.iss.ca.repository.BookingRepository;
 
+@Service
 public class BookingServiceImpl implements BookingService{
 
 	@Resource

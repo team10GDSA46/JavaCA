@@ -30,11 +30,11 @@ public class TimeSlot {
 	@Column(name = "timeslot")
 	private String timeslot;
 
-/*	@OneToMany(mappedBy="timeslots", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	private List<Booking> bookinglist = new ArrayList<Booking>();
+//	@OneToMany(mappedBy="timeslot", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+//	private List<Booking> bookinglist = new ArrayList<Booking>();
 	
-	@OneToMany(mappedBy="timeslots", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	private List<Maintenance> maintenancelist = new ArrayList<Maintenance>();*/
+	@OneToMany(mappedBy="timeslot", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	private List<Maintenance> maintenancelist = new ArrayList<Maintenance>();
 	
 	public int getId() {
 		return id;
@@ -52,13 +52,13 @@ public class TimeSlot {
 		this.timeslot = timeslot;
 	}
 
-	public TimeSlot(int id, String timeslot) {
-		super();
-		this.id = id;
-		this.timeslot = timeslot;
-	}
-	
-	public TimeSlot() {
-	}	
+//	public TimeSlot(int id, String timeslot) {
+//		super();
+//		this.id = id;
+//		this.timeslot = timeslot;
+//	}
+//	
+//	public TimeSlot() {
+//	}	
 
 }

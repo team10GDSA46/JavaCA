@@ -46,6 +46,4 @@ public class FacilityServiceImpl implements FacilityService {
 		facilityRepository.delete(facility);
 		
 	}
-
-
 }
