@@ -21,7 +21,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.iss.ca.models.User;
 import edu.iss.ca.service.UserService;
-import edu.iss.ca.service.UserServiceImpl;
 import edu.iss.ca.validator.UserValidator;
 
 @RequestMapping(value="/user")
@@ -129,17 +128,20 @@ public class UserController {
 	@RequestMapping(value = "/edit/{userid}", method = RequestMethod.POST)
 	public ModelAndView editUser(@ModelAttribute User user, BindingResult result,
 			@PathVariable String userid, final RedirectAttributes redirectAttributes) throws Exception {
-
 		try
 		{
 			if (result.hasErrors())
 				return new ModelAndView("user-edit");
+			String url;
+			if(user.getRole().equals("admin")) {
+				url="redirect:/user/list";
+			}else {
+				url="redirect:/facility/booking/history";
+			}
 
-			ModelAndView mav = new ModelAndView("redirect:/user/list");
+			ModelAndView mav = new ModelAndView(url);
 			String message = "User was successfully updated.";
-
 			fUser.changeUser(user);
-
 			redirectAttributes.addFlashAttribute("message", message);
 			return mav;
 		}
