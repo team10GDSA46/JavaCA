@@ -46,4 +46,10 @@ public class UserServiceImpl implements UserService {
 		userRepository.delete(name);
 	}
 
+	@Override
+	public User authenticate(String uname, String pwd) {
+		User u = userRepository.findUserByNamePwd(uname, pwd);
+		return u;
+	}
+
 }
