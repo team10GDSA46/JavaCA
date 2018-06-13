@@ -13,17 +13,21 @@
 						htmlEscape="true" /> <a href="${apply}"> <spring:message
 							code="menu.courseSubmit" />
 				</a></li>
-				<li><spring:url value="/staff/logout" var="logout"
+				<li><spring:url value="/logout" var="logout"
 						htmlEscape="true" /> <a href="${logout}"> <spring:message
 							code="menu.logout" />
 				</a></li>
 			</c:when>
 			<c:when test="${sessionScope.Role eq 'member' }">
-				<li><spring:url value="/staff/history" var="phistory"
+				<li><spring:url value="/facility/list" var="phistory"
 						htmlEscape="true" /> <a href="${phistory}"> <spring:message
-							code="menu.personalHistory" />
+							code="menu.bookingHistory" />
 				</a></li>
-				<li><spring:url value="/staff/logout" var="logout"
+				<li><spring:url value="/facility/booking" var="apply"
+						htmlEscape="true" /> <a href="${apply}"> <spring:message
+							code="menu.newFacBooking" />
+				</a></li>
+				<li><spring:url value="/logout" var="logout"
 						htmlEscape="true" /> <a href="${logout}"> <spring:message
 							code="menu.logout" />
 				</a></li>

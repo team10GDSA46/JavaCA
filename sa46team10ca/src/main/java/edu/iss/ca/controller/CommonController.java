@@ -61,7 +61,7 @@ public class CommonController {
 	@RequestMapping(value = "/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "redirect:/home/login";
+		return "redirect:/";
 
 	}
 }
