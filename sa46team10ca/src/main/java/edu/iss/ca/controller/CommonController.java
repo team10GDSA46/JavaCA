@@ -16,17 +16,18 @@ import org.springframework.web.servlet.ModelAndView;
 import edu.iss.ca.models.User;
 import edu.iss.ca.service.UserService;
 
-@RequestMapping(value = "/home")
+@RequestMapping(value = "/")
 @Controller
 public class CommonController {
 
 	@Autowired
 	private UserService uService;
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String logic(Model model) {
-		model.addAttribute("user", new User());
-		return "login";
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public ModelAndView logic(@ModelAttribute User user, HttpSession session, BindingResult result) {
+		session.setAttribute("Login",0);
+		ModelAndView mav = new ModelAndView("login");
+		return mav;
 	}
 
 	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
@@ -36,23 +37,31 @@ public class CommonController {
 			return mav;
 
 		UserSession us = new UserSession();
-		if (user.getName() != null && user.getPassword()!=null) {
+		if (user.getName() != null && user.getPassword() != null) {
 			User u = uService.authenticate(user.getName(), user.getPassword());
-			
-			if(u != null) {
-			us.setUser(u);
-			// PUT CODE FOR SETTING SESSION ID
-			us.setSessionId(session.getId());
-			mav = new ModelAndView("redirect:/facility/list");
-		} }
-		else {
-			return mav;
+			if (u != null) {
+
+				us.setUser(u);
+				us.setSessionId(session.getId());
+				session.setAttribute("Login",1);
+				session.setAttribute("USER", u);
+				session.setAttribute("Role",u.getRole());
+
+				if (u.getRole().equalsIgnoreCase("admin")){
+					mav = new ModelAndView("redirect:/facility/list");
+				} else {
+					mav = new ModelAndView("redirect:/user/list");
+				}
+			}
 		}
-//	session.setAttribute("USERSESSION", us);
-	return mav;
-		// }
-		//
-		// }
+		
+		return mav;
+	}
+	
+	@RequestMapping(value = "/logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/home/login";
 
 	}
 }
