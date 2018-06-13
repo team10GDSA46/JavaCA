@@ -3,6 +3,8 @@ package edu.iss.ca.controller;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -16,6 +18,8 @@ import edu.iss.ca.service.UserService;
 
 @RequestMapping(value = "/")
 @Controller
+@Configuration
+@ComponentScan("edu.iss.ca.service")
 public class CommonController {
 
 	@Autowired

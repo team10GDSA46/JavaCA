@@ -8,7 +8,7 @@
 	action="${pageContext.request.contextPath}/facility/edit/${facility.facilityid}.html">
 	<table>
 		<tbody>
-		<form:hidden path="facilityid"/>
+			<form:hidden path="facilityid" />
 			<tr>
 				<td><spring:message code="fieldLabel.name" /></td>
 				<td><form:input path="name" /></td>

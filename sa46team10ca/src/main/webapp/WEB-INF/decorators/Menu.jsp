@@ -9,7 +9,7 @@
 						htmlEscape="true" /> <a href="${phistory}"> <spring:message
 							code="menu.listFacility" />
 				</a></li>
-								<li><spring:url value="facility/booking/history" var="phistory"
+								<li><spring:url value="/booking/list" var="phistory"
 						htmlEscape="true" /> <a href="${phistory}"> <spring:message
 							code="menu.listBooking" />
 				</a></li>
