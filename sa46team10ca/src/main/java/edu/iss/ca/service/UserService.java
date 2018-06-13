@@ -15,5 +15,7 @@ public interface UserService {
 	User changeUser(User name);
 
 	void removeUser(User name);
+	
+	User authenticate(String uname, String pwd);
 
 }

@@ -4,11 +4,13 @@ import java.util.ArrayList;
 
 import javax.annotation.Resource;
 
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import edu.iss.ca.models.Booking;
 import edu.iss.ca.repository.BookingRepository;
 
+@Service
 public class BookingServiceImpl implements BookingService{
 
 	@Resource
@@ -43,6 +45,19 @@ public class BookingServiceImpl implements BookingService{
 	public void removeBooking(Booking booking) {
 		bookingRepository.delete(booking);
 		
+	}
+
+	@Override
+	@Transactional
+	public ArrayList<Booking> findHistoryByUser(Integer id) {
+		return bookingRepository.findHistoryByUser(id);
+	}
+
+	@Override
+	public void cancelBooking(Integer bookingId) {
+		Booking b = bookingRepository.findOne(bookingId);
+		b.setStatus("CANCELLED");
+		bookingRepository.saveAndFlush(b);
 	}
 
 }

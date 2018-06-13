@@ -4,9 +4,12 @@ import java.util.ArrayList;
 
 import javax.annotation.Resource;
 
+import org.springframework.stereotype.Service;
+
 import edu.iss.ca.models.Maintenance;
 import edu.iss.ca.repository.MaintenanceRepository;
 
+@Service
 public class MaintenanceServiceImpl implements MaintenanceService {
 
 	@Resource

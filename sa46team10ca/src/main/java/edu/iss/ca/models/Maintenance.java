@@ -13,6 +13,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name="maintenance")
 public class Maintenance {
@@ -23,9 +25,18 @@ public class Maintenance {
 	private int maintenanceid;
 	
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern= "dd/MM/yyyy" )
 	@Column(name = "date")
 	private Date date;
 	
+	public TimeSlot getTimeslot() {
+		return timeslot;
+	}
+
+	public void setTimeslot(TimeSlot timeslot) {
+		this.timeslot = timeslot;
+	}
+
 	@ManyToOne
 	@JoinColumn(name = "facilityid")
 	private Facility facility;
@@ -37,9 +48,16 @@ public class Maintenance {
 	public Maintenance() {
 	}
 
-	public Maintenance(int maintenanceid, Date date, Facility facility, TimeSlot timeslot) {
+	public Facility getFacility() {
+		return facility;
+	}
+
+	public void setFacility(Facility facility) {
+		this.facility = facility;
+	}
+
+	public Maintenance(Date date, Facility facility, TimeSlot timeslot) {
 		super();
-		this.maintenanceid = maintenanceid;
 		this.date = date;
 		this.facility = facility;
 		this.timeslot = timeslot;
