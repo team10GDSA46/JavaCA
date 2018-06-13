@@ -5,13 +5,21 @@
 	<ul>
 		<c:choose>
 			<c:when test="${sessionScope.Role eq 'admin' }">
-				<li><spring:url value="/staff/history" var="phistory"
+				<li><spring:url value="/facility/list" var="phistory"
 						htmlEscape="true" /> <a href="${phistory}"> <spring:message
-							code="menu.personalHistory" />
+							code="menu.listFacility" />
 				</a></li>
-				<li><spring:url value="/staff/course/create" var="apply"
+								<li><spring:url value="/booking/list" var="phistory"
+						htmlEscape="true" /> <a href="${phistory}"> <spring:message
+							code="menu.listBooking" />
+				</a></li>
+								<li><spring:url value="/user/list" var="phistory"
+						htmlEscape="true" /> <a href="${phistory}"> <spring:message
+							code="menu.listUser" />
+				</a></li>
+				<li><spring:url value="/book/maintenance" var="apply"
 						htmlEscape="true" /> <a href="${apply}"> <spring:message
-							code="menu.courseSubmit" />
+							code="menu.bookMaintenance" />
 				</a></li>
 				<li><spring:url value="/logout" var="logout"
 						htmlEscape="true" /> <a href="${logout}"> <spring:message

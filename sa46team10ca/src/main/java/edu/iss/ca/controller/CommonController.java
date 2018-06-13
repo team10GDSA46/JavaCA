@@ -49,6 +49,7 @@ public class CommonController {
 			UserSession us = new UserSession();
 			if (user.getName() != null && user.getPassword() != null) {
 				User u = uService.authenticate(user.getName(), user.getPassword());
+				mav = new ModelAndView("redirect:/");
 				if (u != null) {
 
 					us.setUser(u);
@@ -56,10 +57,11 @@ public class CommonController {
 					session.setAttribute("Login",1);
 					session.setAttribute("USER", u);
 					session.setAttribute("Role",u.getRole());
+					
 
 					if (u.getRole().equalsIgnoreCase("admin")){
 						mav = new ModelAndView("redirect:/facility/list");
-					} else {
+					} else  {
 						mav = new ModelAndView("redirect:/user/list");
 					}
 				}

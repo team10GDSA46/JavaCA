@@ -8,21 +8,10 @@
 	action="${pageContext.request.contextPath}/facility/edit/${facility.facilityid}.html">
 	<table>
 		<tbody>
-			<tr>
-				<td><spring:message code="fieldLabel.employeeId" /></td>
-				<form:hidden path="facilityid"/>
-				<td>${facility.facilityid}<td>
-			</tr>
-		<form:hidden path=""/>
-			<tr>
-				<td><spring:message code="fieldLabel.employeeId" /></td>
-				<td><form:input path="facilityid" readonly="true" /></td>
-				<td><form:errors path="id" cssStyle="color: red;" /></td>
-			</tr>
+		<form:hidden path="facilityid"/>
 			<tr>
 				<td><spring:message code="fieldLabel.name" /></td>
 				<td><form:input path="name" /></td>
-				<%-- <td><form:errors path="name" cssStyle="color: red;" /></td> --%>
 			</tr>
 			<tr>
 				<td><input type="submit" value="Update" /></td>

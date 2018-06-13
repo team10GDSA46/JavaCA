@@ -47,4 +47,17 @@ public class BookingServiceImpl implements BookingService{
 		
 	}
 
+	@Override
+	@Transactional
+	public ArrayList<Booking> findHistoryByUser(Integer id) {
+		return bookingRepository.findHistoryByUser(id);
+	}
+
+	@Override
+	public void cancelBooking(Integer bookingId) {
+		Booking b = bookingRepository.findOne(bookingId);
+		b.setStatus("CANCELLED");
+		bookingRepository.saveAndFlush(b);
+	}
+
 }
