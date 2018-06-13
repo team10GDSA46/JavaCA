@@ -18,5 +18,4 @@ public interface FacilityService {
 	Facility changeFacility(Facility facName);
 
 	void removeFacility(Facility facName);
-	
 }

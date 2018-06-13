@@ -15,5 +15,4 @@ public interface TimeSlotService {
 	TimeSlot changeTimeSlot(TimeSlot timeSlot);
 
 	void removeTimeSlot(TimeSlot timeSlot);
-
 }

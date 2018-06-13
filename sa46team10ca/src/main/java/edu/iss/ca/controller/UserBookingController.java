@@ -1,4 +1,4 @@
-package edu.iss.ca.controller;
+/*package edu.iss.ca.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -33,7 +33,7 @@ import edu.iss.ca.service.TimeSlotService;
 
 @RequestMapping(value="/facility")
 @Controller
-public class FacilityController {
+public class UserBookingController {
 	@Autowired
 	private FacilityService fService;
 	
@@ -93,7 +93,7 @@ public class FacilityController {
 	
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
 	public ModelAndView editFacility(@ModelAttribute Facility facility, BindingResult result,
-			@PathVariable String id, final RedirectAttributes redirectAttributes) /*throws EmployeeNotFound*/ {
+			@PathVariable String id, final RedirectAttributes redirectAttributes) throws EmployeeNotFound {
 
 		if (result.hasErrors())
 			return new ModelAndView("facility-edit");
@@ -145,7 +145,7 @@ public class FacilityController {
 //		return mav;
 //	}
 	
-	@RequestMapping(value = "/booking/process", method = RequestMethod.POST)
+	@RequestMapping(value = "/booking/testing", method = RequestMethod.POST)
 	public ModelAndView testing(@ModelAttribute Booking booking, BindingResult result,
 			final RedirectAttributes redirectAttributes,
 			@RequestParam("ts") int[] tsIds) {
@@ -167,6 +167,16 @@ public class FacilityController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/bookingslot",method=RequestMethod.GET)
+	public ModelAndView facilityBookingSlot()
+	{
+		ModelAndView mav = new ModelAndView("testpage");
+		ArrayList<TimeSlot> tsList = tsService.findAllTimeSlot();
+		mav.addObject("booking", new Booking());
+		mav.addObject("tslist", tsList);
+		return mav;
+	}
+	
 	@RequestMapping(value = "/bookingslot", method = RequestMethod.POST)
 	public ModelAndView testing1(@ModelAttribute Booking booking, BindingResult result,
 			final RedirectAttributes redirectAttributes,
@@ -179,6 +189,13 @@ public class FacilityController {
 		mav.addObject("booking", booking);
 		mav.addObject("tslist", tsList);
 		return mav;
+		
+		
+//		ModelAndView mav = new ModelAndView("testpage2");
+//		mav.addObject("nums", nums);
+//		mav.addObject("booking", booking);
+//		return mav;
 	}
 
 }
+*/

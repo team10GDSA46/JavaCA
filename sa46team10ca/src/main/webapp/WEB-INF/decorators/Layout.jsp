@@ -5,9 +5,10 @@
 <html>
 <head>
 <%@include file="Header.jsp"%>
-<c:url value="/css/simple.css" var="ss"/>
-<link rel="STYLESHEET" type="text/css"
-	href="${ss}" />
+<c:url value="/css/simple.css" var="ss" />
+<link rel="STYLESHEET" type="text/css" href="${ss}" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <dec:head />
 </head>
 <body>
@@ -15,7 +16,7 @@
 		<tr>
 			<td style="width: 180; border: 1" valign="top">
 				<div>
-					
+
 					<%@ include file="Menu.jsp"%>
 				</div>
 			</td>
@@ -29,11 +30,11 @@
 			</td>
 		</tr>
 	</table>
-	
+
 	<!-- ======== Footer ======== -->
-				<div id="footer" align="center">
-				  <hr>
-					<small> &copy; ISS NUS SA42 2016 </small>
-				</div>
+	<div id="footer" align="center">
+		<hr>
+		<small> &copy; ISS NUS SA42 2016 </small>
+	</div>
 </body>
 </html>
