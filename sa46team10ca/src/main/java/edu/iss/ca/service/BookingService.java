@@ -16,4 +16,7 @@ public interface BookingService {
 
 	void removeBooking(Booking booking);
 
+	ArrayList<Booking> findHistoryByUser(Integer id);
+	
+	void cancelBooking(Integer bookingId);
 }

@@ -34,7 +34,7 @@
 	<!-- ======== Footer ======== -->
 	<div id="footer" align="center">
 		<hr>
-		<small> &copy; ISS NUS SA42 2016 </small>
+		<small> &copy; SA46Team10 © </small>
 	</div>
 </body>
 </html>
