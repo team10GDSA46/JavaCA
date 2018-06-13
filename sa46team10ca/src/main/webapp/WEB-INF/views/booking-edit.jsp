@@ -21,11 +21,13 @@
 <form:form method="POST" modelAttribute="booking"
 	action="${pageContext.request.contextPath}/booking/edit/${booking.bookingid}.html">
 	<table>
+	<thead>
+	</thead>
 		<tbody>
 		<form:hidden path="booking"/>
 			<tr>
 				<td><spring:message code="BookingID" /></td>
-				<td><form:input path="bookingid"/></td>
+				<td><form:input path= "${booking.bookingid.ToString()}"/></td>
 				<td><form:errors path="bookingid" cssStyle="color: red;" /></td>
 				<td><input type="submit" value="Update" /></td>
 				<td></td>

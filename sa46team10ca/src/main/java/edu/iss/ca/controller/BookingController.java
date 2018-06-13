@@ -90,6 +90,29 @@ public class BookingController {
 		return null;
 	}
 	
+	@RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
+	public ModelAndView editUser(@ModelAttribute Booking booking, BindingResult result,
+			@PathVariable String userid, final RedirectAttributes redirectAttributes) throws Exception {
+		try
+		{
+			if (result.hasErrors())
+				return new ModelAndView("booking-edit");
+			
+			ModelAndView mav = new ModelAndView("redirect:/booking/list");
+			String message = "Booking was successfully updated.";
+			bService.changeBooking(booking);
+			redirectAttributes.addFlashAttribute("message", message);
+			return mav;
+		}
+		catch(Exception e)
+		{
+			String exceptionOccurred = "Exception";
+			if(exceptionOccurred.equalsIgnoreCase("Exception"))
+				throw new Exception("Exception");
+		}
+		return null;
+	}
+	
 	@RequestMapping(value = "/delete/{bookingid}", method = RequestMethod.GET)
 	public ModelAndView deleteUser(@PathVariable String bookingid, final RedirectAttributes redirectAttributes)
 			throws Exception

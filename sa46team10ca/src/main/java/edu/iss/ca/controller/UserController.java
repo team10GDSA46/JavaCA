@@ -136,7 +136,7 @@ public class UserController {
 			if(user.getRole().equals("admin")) {
 				url="redirect:/user/list";
 			}else {
-				url="redirect:/facility/booking/history";
+				url="redirect:/user/edit/{userid}";
 			}
 
 			ModelAndView mav = new ModelAndView(url);
@@ -183,5 +183,6 @@ public class UserController {
 		System.out.print("Exception");
 		return "Exception";
 	}
+	
 
 }
