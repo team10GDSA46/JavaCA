@@ -24,27 +24,27 @@ public class Facility {
 	@Column(name="name")
 	private String name;
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy="facility", cascade=CascadeType.ALL)
-	private List<Maintenance> maintenancelist = new ArrayList<Maintenance>();
-	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy="facility", cascade=CascadeType.ALL)
-	private List<Booking> bookinglist = new ArrayList<Booking>();
-	
-	public List<Booking> getBookinglist() {
-		return bookinglist;
-	}
-
-	public void setBookinglist(List<Booking> bookinglist) {
-		this.bookinglist = bookinglist;
-	}
-
-	public List<Maintenance> getMaintenancelist() {
-		return maintenancelist;
-	}
-
-	public void setMaintenancelist(List<Maintenance> maintenancelist) {
-		this.maintenancelist = maintenancelist;
-	}
+//	@OneToMany(fetch = FetchType.EAGER, mappedBy="facility", cascade=CascadeType.ALL)
+//	private List<Maintenance> maintenancelist = new ArrayList<Maintenance>();
+//	
+//	@OneToMany(fetch = FetchType.EAGER, mappedBy="facility", cascade=CascadeType.ALL)
+//	private List<Booking> bookinglist = new ArrayList<Booking>();
+//	
+//	public List<Booking> getBookinglist() {
+//		return bookinglist;
+//	}
+//
+//	public void setBookinglist(List<Booking> bookinglist) {
+//		this.bookinglist = bookinglist;
+//	}
+//
+//	public List<Maintenance> getMaintenancelist() {
+//		return maintenancelist;
+//	}
+//
+//	public void setMaintenancelist(List<Maintenance> maintenancelist) {
+//		this.maintenancelist = maintenancelist;
+//	}
 
 	public Facility() {}
 	

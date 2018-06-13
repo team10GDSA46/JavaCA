@@ -145,7 +145,7 @@ public class FacilityController {
 //		return mav;
 //	}
 	
-	@RequestMapping(value = "/booking/testing", method = RequestMethod.POST)
+	@RequestMapping(value = "/booking/process", method = RequestMethod.POST)
 	public ModelAndView testing(@ModelAttribute Booking booking, BindingResult result,
 			final RedirectAttributes redirectAttributes,
 			@RequestParam("ts") int[] tsIds) {
@@ -167,16 +167,6 @@ public class FacilityController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/bookingslot",method=RequestMethod.GET)
-	public ModelAndView facilityBookingSlot()
-	{
-		ModelAndView mav = new ModelAndView("testpage");
-		ArrayList<TimeSlot> tsList = tsService.findAllTimeSlot();
-		mav.addObject("booking", new Booking());
-		mav.addObject("tslist", tsList);
-		return mav;
-	}
-	
 	@RequestMapping(value = "/bookingslot", method = RequestMethod.POST)
 	public ModelAndView testing1(@ModelAttribute Booking booking, BindingResult result,
 			final RedirectAttributes redirectAttributes,
@@ -189,12 +179,6 @@ public class FacilityController {
 		mav.addObject("booking", booking);
 		mav.addObject("tslist", tsList);
 		return mav;
-		
-		
-//		ModelAndView mav = new ModelAndView("testpage2");
-//		mav.addObject("nums", nums);
-//		mav.addObject("booking", booking);
-//		return mav;
 	}
 
 }

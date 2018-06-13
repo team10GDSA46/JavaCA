@@ -1,4 +1,4 @@
-package edu.iss.ca.controller;
+/*package edu.iss.ca.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -93,7 +93,7 @@ public class UserBookingController {
 	
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
 	public ModelAndView editFacility(@ModelAttribute Facility facility, BindingResult result,
-			@PathVariable String id, final RedirectAttributes redirectAttributes) /*throws EmployeeNotFound*/ {
+			@PathVariable String id, final RedirectAttributes redirectAttributes) throws EmployeeNotFound {
 
 		if (result.hasErrors())
 			return new ModelAndView("facility-edit");
@@ -198,3 +198,4 @@ public class UserBookingController {
 	}
 
 }
+*/

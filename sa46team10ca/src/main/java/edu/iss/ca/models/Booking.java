@@ -42,7 +42,7 @@ public class Booking {
 	@Column(name = "date")
 	private Date date;
 	
-	@Column(name = "status")
+	@Column(name = "bookingstatus")
 	private String status;
 	
 	public Booking() {
