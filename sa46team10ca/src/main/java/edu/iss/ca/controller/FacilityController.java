@@ -27,6 +27,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import edu.iss.ca.models.Booking;
 import edu.iss.ca.models.Facility;
 import edu.iss.ca.models.TimeSlot;
+import edu.iss.ca.models.User;
 import edu.iss.ca.service.BookingService;
 import edu.iss.ca.service.FacilityService;
 import edu.iss.ca.service.TimeSlotService;
@@ -308,5 +309,46 @@ public class FacilityController {
 		ModelAndView mav = new ModelAndView("redirect:/facility/booking/history");
 		bService.cancelBooking(Integer.parseInt(id));
 		return mav;
+	}
+	
+	@RequestMapping(value = "/bookingAll", method=RequestMethod.GET)
+	public ModelAndView viewAllBooking() throws Exception
+	{
+		try
+		{
+			ModelAndView mav = new ModelAndView("bookingAll");
+			List<Booking> bookingList = bService.findAllBooking();
+			mav.addObject("bookingList", bookingList);
+			return mav;
+		}
+		catch(Exception e)
+		{
+			String exceptionOccurred = "Exception";
+			if(exceptionOccurred.equalsIgnoreCase("Exception"))
+				throw new Exception("Exception");
+		}
+		return null;
+	}
+	@RequestMapping(value = "/delete/{bookingid}", method = RequestMethod.GET)
+	public ModelAndView deleteUser(@PathVariable String bookingid, final RedirectAttributes redirectAttributes)
+			throws Exception
+	{
+		try
+		{
+			ModelAndView mav = new ModelAndView("bookingAll");
+			Booking booking = bService.findBooking(Integer.parseInt(bookingid));
+			bService.removeBooking(booking);
+			String message = "The booking was successfully deleted.";
+
+			redirectAttributes.addFlashAttribute("message", message);
+			return mav;
+		}
+		catch(Exception e)
+		{
+			String exceptionOccurred = "Exception";
+			if(exceptionOccurred.equalsIgnoreCase("Exception"))
+				throw new Exception("Exception");
+		}
+		return null;
 	}
 }

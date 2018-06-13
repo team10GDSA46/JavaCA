@@ -8,13 +8,13 @@
 	<a
 	href="${pageContext.request.contextPath}/user/create.html">Create New User</a>
 	<table style="cellspacing: 2; cellpadding: 2; border: 1;">
-<%-- 		<thead>
+<%-- 		<head>
 			<tr class="listHeading">
 				<th><spring:message code="Fac Num" /></th>
 				<th><spring:message code="Fac Name" /></th>
 				<th><spring:message code="caption.delete" /></th>
 			</tr>
-		</thead> --%>
+		</head> --%>
 		<tbody>
 			<c:forEach var="user" items="${userList}">
 				<tr class="listRecord">
