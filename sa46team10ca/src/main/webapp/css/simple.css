@@ -1,7 +1,8 @@
 BODY {
 	font-family : calbiri ;
 	font-size : 10pt;
-	
+	background: #fff url(../image/background.gif) no-repeat center;
+	image-opacity: 0.5;
 }
 
 A {
@@ -27,8 +28,7 @@ h1 {
 		inset 0 0 0 1px rgba(53,86,129, 0.4), 
 		inset 0 0 5px rgba(53,86,129, 0.5),
 		inset -285px 0 35px white;
-	border-radius: 0 10px 0 10px;
-	background: #fff url(../image/cats.gif) no-repeat center left;
+	
 }
 
 h2 {
@@ -49,16 +49,21 @@ h2 {
 }
 
 h3 {
-	margin: 1em 0 0.5em 0;
 	font-weight: 600;
 	font-family: 'Titillium Web', sans-serif;
 	position: relative;
-	text-shadow: 0 -1px 1px rgba(0,0,0,0.4);
-	font-size: 15px;
-	line-height: 40px;
-	color: #355681;
-	text-transform: uppercase;
-	border-bottom: 1px solid rgba(53,86,129, 0.3);
+	font-size: 1px;
+	line-height: 1px;
+	color: #000000;
+}
+
+myh3{
+	font-family: 'Titillium Web', sans-serif;
+	position: relative;
+	font-size: 1px;
+	line-height: 1px;
+	color: #000000;
+	
 }
 
 h4 {
@@ -66,9 +71,9 @@ h4 {
 	font-weight: 600;
 	font-family: 'Titillium Web', sans-serif;
 	position: relative;
-	font-size: 12px;
-	line-height: 20px;
-	color: #788699;
+	font-size: 30px;
+	line-height: 1px;
+	color: #000000;
 	font-family: 'Muli', sans-serif;
 }
 
@@ -159,4 +164,29 @@ hr {
     margin-right: auto;
     border-style: inset;
     border-width: 1px;
+}
+
+.form-group input[type="checkbox"] {
+    display: none;
+}
+
+.form-group input[type="checkbox"] + .btn-group > label span {
+    width: 20px;
+}
+
+.form-group input[type="checkbox"] + .btn-group > label span:first-child {
+    display: none;
+}
+.form-group input[type="checkbox"] + .btn-group > label span:last-child {
+    display: inline-block;
+    height: 20px;
+}
+
+.form-group input[type="checkbox"]:checked + .btn-group > label span:first-child {
+    display: inline-block;
+    height: 20px;
+}
+.form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {
+    display: none;
+    height: 20px;
 }

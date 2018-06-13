@@ -8,7 +8,9 @@
 <c:url value="/css/simple.css" var="ss" />
 <link rel="STYLESHEET" type="text/css" href="${ss}" />
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <dec:head />
 </head>
 <body>
@@ -34,7 +36,7 @@
 	<!-- ======== Footer ======== -->
 	<div id="footer" align="center">
 		<hr>
-		<small> &copy; ISS NUS SA42 2016 </small>
+		<small> &copy; SA46Team10 © </small>
 	</div>
 </body>
 </html>

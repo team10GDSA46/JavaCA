@@ -37,49 +37,48 @@
 			<tr>
 				<td><spring:message code="Name" /></td>
 				<td><form:input path="name" /></td>
-				<%-- <td><form:errors path="name" cssStyle="color: red;" /></td> --%>
+				<td><form:errors path="name" cssStyle="color: red;" /></td>
 			</tr>
 			<tr>
 				<td><spring:message code="Nric" /></td>
 				<td><form:input path="nric" /></td>
-				<%-- <td><form:errors path="name" cssStyle="color: red;" /></td> --%>
+				<td><form:errors path="nric" cssStyle="color: red;" /></td>
 			</tr>
 			<tr>
 				<td><spring:message code="Role" /></td>
 				<td><form:input path="role" /></td>
-				<%-- <td><form:errors path="name" cssStyle="color: red;" /></td> --%>
+				<td><form:errors path="role" cssStyle="color: red;" /></td>
 			</tr>
 			<tr>
 				<td><spring:message code="Username" /></td>
 				<td><form:input path="username" /></td>
-				<%-- <td><form:errors path="name" cssStyle="color: red;" /></td> --%>
+				<td><form:errors path="username" cssStyle="color: red;" /></td>
 			</tr>
 			<tr>
 				<td><spring:message code="Password" /></td>
 				<td><form:input path="password" /></td>
-				<%-- <td><form:errors path="name" cssStyle="color: red;" /></td> --%>
+				<td><form:errors path="password" cssStyle="color: red;" /></td>
 			</tr>			
 			<tr>
 				<td><spring:message code="Date of Birth" /></td>
  				<td><form:input path="dob" id="datepicker"/></td>
-				<%-- <td><form:errors path="name" cssStyle="color: red;" /></td> --%>
+				<td><form:errors path="dob" cssStyle="color: red;" /></td>
 			</tr>						
 			<tr>
 				<td><spring:message code="Phone" /></td>
 				<td><form:input path="phone" /></td>
-				<%-- <td><form:errors path="name" cssStyle="color: red;" /></td> --%>
+				<td><form:errors path="phone" cssStyle="color: red;" /></td>
 			</tr>
 			<tr>
 				<td><spring:message code="Address" /></td>
 				<td><form:input path="address" /></td>
-				<%-- <td><form:errors path="name" cssStyle="color: red;" /></td> --%>
+				<td><form:errors path="address" cssStyle="color: red;" /></td>
 			</tr>
 			<tr>
 				<td><spring:message code="Email" /></td>
 				<td><form:input path="email" /></td>
-				<%-- <td><form:errors path="name" cssStyle="color: red;" /></td> --%>
+				<td><form:errors path="email" cssStyle="color: red;" /></td>
 			</tr>			
-			
 			<tr>
 				<td><input type="submit" value="Update" /></td>
 				<td></td>

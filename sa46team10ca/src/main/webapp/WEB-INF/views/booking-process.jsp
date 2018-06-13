@@ -15,8 +15,6 @@
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
 	$(function() {
 		$("#datepicker").datepicker().val();
@@ -30,7 +28,7 @@
 	<table>
 		<tr>
 			<td><h4>Select your Facility</h4></td>
-			<td><select name="facId">
+			<td><select name="facId" class="form-control">
 					<c:forEach items="${flist}" var="fac">
 						<option value="${fac.facilityid}">${fac.name}</option>
 					</c:forEach>
@@ -40,14 +38,14 @@
 		<tr>
 			<td><h4>Select Your Date</h4></td>
 			<td><form:input path="date" id="datepicker"
-					cssClass="form-control btn btn-default" /></td>
+					cssClass="form-control" /></td>
 		</tr>
 
 		<tr>
 			<td>
-			<td colspan="2" align="left"><input type="submit" value="Submit">
+			<td colspan="2" align="left">
+			<input type="submit" value="Submit" class="btn btn-success">
 			</td>
 		</tr>
-
 	</table>
 </form:form>
