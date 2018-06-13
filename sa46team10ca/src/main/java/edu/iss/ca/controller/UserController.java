@@ -3,11 +3,15 @@ package edu.iss.ca.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +22,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import edu.iss.ca.models.User;
 import edu.iss.ca.service.UserService;
 import edu.iss.ca.service.UserServiceImpl;
+import edu.iss.ca.validator.UserValidator;
 
 @RequestMapping(value="/user")
 @Controller
@@ -27,6 +32,15 @@ public class UserController {
 
 	@Autowired
 	private UserService fUser;
+	
+	//Inject Validator instance and binder
+ 	@Autowired
+	private UserValidator uValidator;
+ 	
+ 	@InitBinder("user")
+	private void initUserBinder(WebDataBinder binder) {
+		binder.addValidators(uValidator);
+	}	
 	
 	@RequestMapping(value = "/list", method=RequestMethod.GET)
 	public ModelAndView userListPage()
@@ -44,11 +58,11 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public ModelAndView createNewUser(@ModelAttribute User user, BindingResult result,
+	public ModelAndView createNewUser(@ModelAttribute @Valid User user, BindingResult result,
 			final RedirectAttributes redirectAttributes) {
 
 		if (result.hasErrors())
-			return new ModelAndView("employee-new");
+			return new ModelAndView("user-new");
 
 		ModelAndView mav = new ModelAndView();
 		String message = "New user was successfully created.";

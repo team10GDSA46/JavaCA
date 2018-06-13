@@ -13,6 +13,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.Email;
 
 
 @Entity
@@ -22,6 +26,7 @@ public class User {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userid;
+	@Pattern(regexp="^[a-zA-Z\\s]+$", message="Please enter a valid name")
 	private String name;
 	private String nric;
 	private String role;
@@ -30,14 +35,9 @@ public class User {
 	private String dob;
 	private String phone;
 	private String address;
+	@Pattern(regexp=".+@.+\\..+", message="Please provide a valid email address")
 	private String email;
 	
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
 	public int getUserid() {
 		return userid;
 	}
@@ -91,6 +91,13 @@ public class User {
 	}
 	public void setAddress(String address) {
 		this.address = address;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 //	@OneToMany(cascade=CascadeType.ALL)
