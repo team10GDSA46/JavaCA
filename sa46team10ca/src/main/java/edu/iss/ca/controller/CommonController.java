@@ -20,6 +20,7 @@ public class CommonController {
 
 	@Autowired
 	private UserService uService;
+	public static int useridcopy=0;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView logic(@ModelAttribute User user, HttpSession session, BindingResult result) throws Exception {
@@ -47,8 +48,10 @@ public class CommonController {
 				return mav;
 
 			UserSession us = new UserSession();
+			us.setUser(user);
 			if (user.getName() != null && user.getPassword() != null) {
 				User u = uService.authenticate(user.getName(), user.getPassword());
+				mav = new ModelAndView("redirect:/");
 				if (u != null) {
 
 					us.setUser(u);
@@ -56,15 +59,17 @@ public class CommonController {
 					session.setAttribute("Login",1);
 					session.setAttribute("USER", u);
 					session.setAttribute("Role",u.getRole());
+					session.setAttribute("UserID",u.getUserid());
+					useridcopy = u.getUserid();
 
 					if (u.getRole().equalsIgnoreCase("admin")){
 						mav = new ModelAndView("redirect:/facility/list");
-					} else {
-						mav = new ModelAndView("redirect:/user/list");
+					} else  {
+						mav = new ModelAndView("redirect:/facility/booking/history");
 					}
 				}
 			}
-			
+			session.setAttribute("USERSESSION", us);
 			return mav;
 		}
 		catch(Exception e)
@@ -81,7 +86,7 @@ public class CommonController {
 		try
 		{
 			session.invalidate();
-			return "redirect:/home/login";
+			return "redirect:/";
 		}
 		catch(Exception e)
 		{
@@ -90,6 +95,7 @@ public class CommonController {
 				throw new Exception("Exception");
 		}
 		return null;
+
 
 	}
 	

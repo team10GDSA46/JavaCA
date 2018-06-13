@@ -8,7 +8,7 @@ import edu.iss.ca.models.User;
 
 public interface UserRepository extends  JpaRepository<User, Integer> {
 	
-	@Query("SELECT u FROM User u WHERE u.name=:un AND u.password=:pwd")
+	@Query("SELECT u FROM User u WHERE u.username=:un AND u.password=:pwd")
 	User findUserByNamePwd(@Param("un") String uname, @Param("pwd") String pwd);
 
 }
