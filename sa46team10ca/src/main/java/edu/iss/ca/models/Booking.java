@@ -53,8 +53,8 @@ public class Booking {
 
 	public Booking(User user, Facility facility, TimeSlot timeslot, String status) {
 		super();
-		this.bookingid = bookingid;
-//		this.user = user;
+		
+		this.user = user;
 		this.facility = facility;
 		this.timeslot = timeslot;
 		this.status = status;
@@ -62,8 +62,9 @@ public class Booking {
 	
 	public Booking(User user, Facility facility, TimeSlot timeslot, Date date, String status) {
 		super();
-		this.bookingid = bookingid;
-//		this.user = user;
+
+
+		this.user = user;
 		this.facility = facility;
 		this.timeslot = timeslot;
 		this.date = date;
