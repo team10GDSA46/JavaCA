@@ -25,9 +25,9 @@ public class Booking {
 	@Column(name = "bookingid")
 	private int bookingid;
 	
-//	@ManyToOne
-//	@JoinColumn(name = "userid")
-//	private User user;
+	@ManyToOne
+	@JoinColumn(name = "userid")
+	private User user;
 	
 	@ManyToOne
 	@JoinColumn(name = "facilityid")
@@ -42,7 +42,7 @@ public class Booking {
 	@Column(name = "date")
 	private Date date;
 	
-	@Column(name = "status")
+	@Column(name = "bookingstatus")
 	private String status;
 	
 	public Booking() {
@@ -94,13 +94,13 @@ public class Booking {
 		this.bookingid = bookingid;
 	}
 
-//	public User getUserid() {
-//		return user;
-//	}
-//
-//	public void setUserid(User userid) {
-//		this.user = userid;
-//	}
+	public User getUserid() {
+		return user;
+	}
+
+	public void setUserid(User userid) {
+		this.user = userid;
+	}
 
 	public Date getDate() {
 		return date;

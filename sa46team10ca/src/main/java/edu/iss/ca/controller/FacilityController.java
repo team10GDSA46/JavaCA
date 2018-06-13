@@ -189,12 +189,23 @@ public class FacilityController {
 		mav.addObject("booking", booking);
 		mav.addObject("tslist", tsList);
 		return mav;
-		
-		
-//		ModelAndView mav = new ModelAndView("testpage2");
-//		mav.addObject("nums", nums);
-//		mav.addObject("booking", booking);
-//		return mav;
 	}
-
+	
+	@RequestMapping(value="/booking/history",method=RequestMethod.GET)
+	public ModelAndView bookingHistory()
+	{
+		//int userid = 1;
+		ModelAndView mav = new ModelAndView("booking-history");
+		ArrayList<Booking> history = bService.findHistoryByUser(1);
+		mav.addObject("history", history);
+		return mav;
+	}
+	
+	@RequestMapping(value="/booking/cancel/{id}",method=RequestMethod.GET)
+	public ModelAndView cancelBooking(@PathVariable String id)
+	{
+		ModelAndView mav = new ModelAndView("redirect:/facility/booking/history");
+		bService.cancelBooking(Integer.parseInt(id));
+		return mav;
+	}
 }
