@@ -26,7 +26,7 @@
 
 <h3>Please make your bookings here</h3>
 <form:form method="POST" modelAttribute="maintenance"
-	action="${pageContext.request.contextPath}/facility/maintenanceslot.html">
+	action="${pageContext.request.contextPath}/maintenance/maintenanceslot.html">
 	<table>
 		<tr>
 			<td><h4>Select your Facility</h4></td>

@@ -4,7 +4,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <form:form
-	action="${pageContext.request.contextPath}/facility/maintenance/process.html"
+	action="${pageContext.request.contextPath}/maintenance/maintenance/process.html"
 	method="post" modelAttribute="maintenance">
 	<form:hidden path="maintenanceid" />
 	<form:hidden path="timeslot" />

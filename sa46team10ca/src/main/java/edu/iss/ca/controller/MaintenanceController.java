@@ -3,6 +3,7 @@ package edu.iss.ca.controller;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import edu.iss.ca.models.Booking;
 import edu.iss.ca.models.Facility;
 import edu.iss.ca.models.Maintenance;
 import edu.iss.ca.models.TimeSlot;
@@ -25,7 +27,7 @@ import edu.iss.ca.service.FacilityService;
 import edu.iss.ca.service.TimeSlotService;
 import edu.iss.ca.service.MaintenanceService;
 
-@RequestMapping(value="/facility")
+@RequestMapping(value="/maintenance")
 @Controller
 public class MaintenanceController {
 	@Autowired
@@ -127,7 +129,7 @@ public class MaintenanceController {
 				multi.setTimeslot(x);
 				mService.createMaintenance(multi);
 			}
-			ModelAndView mav = new ModelAndView("booking-history");
+			ModelAndView mav = new ModelAndView("redirect:/maintenance/list");
 			return mav;
 		}
 		catch(Exception e)
@@ -146,4 +148,22 @@ public class MaintenanceController {
 		return "Exception";
 	}
 	
+	@RequestMapping(value = "/list", method=RequestMethod.GET)
+	public ModelAndView facilityListPage() throws Exception
+	{
+		try
+		{
+			ModelAndView mav = new ModelAndView("maintenance-list");
+			List<Maintenance> mList = mService.findAllMaintenance();
+			mav.addObject("mList", mList);
+			return mav;
+		}
+		catch(Exception e)
+		{
+			String exceptionOccurred = "Exception";
+			if(exceptionOccurred.equalsIgnoreCase("Exception"))
+				throw new Exception("Exception");
+		}
+		return null;
+	}
 }
