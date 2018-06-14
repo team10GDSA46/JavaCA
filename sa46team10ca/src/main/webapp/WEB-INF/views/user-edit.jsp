@@ -26,13 +26,7 @@
 		<tbody>
 		<form:hidden path=""/>
 
-<!--  Commented Off
-			<tr>
-				<td><spring:message code="fieldLabel.name" /></td>
-				<td><form:input path="name" /></td>
-				<%-- <td><form:errors path="name" cssStyle="color: red;" /></td> --%>
-			</tr>
--->
+
 			
 			<tr>
 				<td><spring:message code="Name" /></td>
