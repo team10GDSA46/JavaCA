@@ -1,9 +1,3 @@
--- MySQL dump 10.13  Distrib 8.0.11, for Win64 (x86_64)
---
--- Host: 127.0.0.1    Database: sa46team10ca
--- ------------------------------------------------------
--- Server version	8.0.11
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -16,10 +10,18 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Drop and create sa46team10CA database
+--
+DROP database sa46team10CA;
+
+CREATE database sa46team10CA;
+
+USE sa46team10CA;
+
+--
 -- Table structure for table `booking`
 --
 
-DROP TABLE IF EXISTS `booking`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `booking` (
@@ -53,7 +55,6 @@ UNLOCK TABLES;
 -- Table structure for table `facility`
 --
 
-DROP TABLE IF EXISTS `facility`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `facility` (
@@ -77,7 +78,6 @@ UNLOCK TABLES;
 -- Table structure for table `maintenance`
 --
 
-DROP TABLE IF EXISTS `maintenance`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `maintenance` (
@@ -107,7 +107,6 @@ UNLOCK TABLES;
 -- Table structure for table `timeslots`
 --
 
-DROP TABLE IF EXISTS `timeslots`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `timeslots` (
@@ -131,7 +130,6 @@ UNLOCK TABLES;
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `users` (
@@ -168,4 +166,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-06-13 10:39:47
+
