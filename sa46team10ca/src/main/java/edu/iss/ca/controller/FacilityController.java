@@ -29,6 +29,7 @@ import edu.iss.ca.models.Facility;
 import edu.iss.ca.models.TimeSlot;
 import edu.iss.ca.service.BookingService;
 import edu.iss.ca.service.FacilityService;
+import edu.iss.ca.service.MaintenanceService;
 import edu.iss.ca.service.TimeSlotService;
 import edu.iss.ca.controller.CommonController;
 
@@ -43,6 +44,9 @@ public class FacilityController {
 	
 	@Autowired
 	private TimeSlotService tsService;
+	
+	@Autowired
+	private MaintenanceService mService;
 	
 	@InitBinder("booking")
 	private void initCourseBinder(WebDataBinder binder) {
@@ -258,17 +262,24 @@ public class FacilityController {
 	@RequestMapping(value = "/bookingslot", method = RequestMethod.POST)
 	public ModelAndView testing1(@ModelAttribute Booking booking, BindingResult result,
 			final RedirectAttributes redirectAttributes,
-
+			HttpSession session,
 			@RequestParam("facId") int fid) throws Exception {
 		
 		try
 		{
 			ModelAndView mav = new ModelAndView("bookingslot");
+			UserSession us = (UserSession) session.getAttribute("USERSESSION");
 			ArrayList<TimeSlot> tsList = tsService.findAllTimeSlot();
 			Facility f = fService.findFacility(fid);
 			booking.setFacility(f);
+			ArrayList<Integer> bSlots = bService.findBookedSlots(us.getUser().getUserid(), 
+					booking.getDate(), f.getFacilityid());
+			ArrayList<Integer> mSlots = mService.findSlotsUnderMaintenance(booking.getDate(), f.getFacilityid());
+			mSlots.add(1);
 			mav.addObject("booking", booking);
 			mav.addObject("tslist", tsList);
+			mav.addObject("bslots", bSlots);
+			mav.addObject("mslots", mSlots);
 			return mav;
 		}
 		

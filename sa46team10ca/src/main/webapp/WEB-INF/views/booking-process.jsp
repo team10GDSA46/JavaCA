@@ -17,7 +17,10 @@
 <link rel="stylesheet" href="/resources/demos/style.css">
 <script>
 	$(function() {
-		$("#datepicker").datepicker().val();
+		$("#datepicker").datepicker({
+			dateFormat: 'dd/mm/yy',
+			minDate: '+1d'
+		}).val();
 	});
 </script>
 </head>

@@ -9,15 +9,26 @@
 						htmlEscape="true" /> <a href="${phistory}"> <spring:message
 							code="menu.listFacility" />
 				</a></li>
-								<li><spring:url value="facility/booking/history" var="phistory"
-						htmlEscape="true" /> <a href="${phistory}"> <spring:message
+								<li><spring:url value="booking/list" var="phistory"
+						htmlEscape="true" /> <a href="${pageContext.request.contextPath}/booking/list"> <spring:message
 							code="menu.listBooking" />
 				</a></li>
 								<li><spring:url value="/user/list" var="phistory"
 						htmlEscape="true" /> <a href="${phistory}"> <spring:message
 							code="menu.listUser" />
 				</a></li>
-				<li><spring:url value="/facility/maintenance" var="apply"
+				
+				
+				
+				
+								<li><spring:url value="/maintenance/list" var="phistory"
+						htmlEscape="true" /> <a href="${phistory}"> <spring:message
+							code="menu.listMaintenance" /></a></li>
+						
+				
+				
+				
+				<li><spring:url value="/maintenance/maintenance" var="apply"
 						htmlEscape="true" /> <a href="${apply}"> <spring:message
 							code="menu.bookMaintenance" />
 				</a></li>

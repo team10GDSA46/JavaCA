@@ -1,6 +1,7 @@
 package edu.iss.ca.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.annotation.Resource;
 
@@ -25,7 +26,7 @@ public class BookingServiceImpl implements BookingService{
 	@Override
 	@Transactional
 	public Booking findBooking(Integer id) {
-		return bookingRepository.getOne(id);
+		return bookingRepository.findOne(id);
 	}
 
 	@Override
@@ -54,10 +55,17 @@ public class BookingServiceImpl implements BookingService{
 	}
 
 	@Override
+	@Transactional
 	public void cancelBooking(Integer bookingId) {
 		Booking b = bookingRepository.findOne(bookingId);
 		b.setStatus("CANCELLED");
 		bookingRepository.saveAndFlush(b);
+	}
+
+	@Override
+	@Transactional
+	public ArrayList<Integer> findBookedSlots(Integer userId, Date date, Integer facId) {
+		return bookingRepository.findBookedSlots(userId, date, facId);
 	}
 
 }

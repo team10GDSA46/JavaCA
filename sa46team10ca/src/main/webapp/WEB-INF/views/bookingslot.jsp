@@ -13,26 +13,49 @@
 	<form:hidden path="status" />
 	<form:hidden path="facility.facilityid" />
 	<div class="col-xs-5 col-md-5 col-sm-5" align="right">
-		Facility :<br /><br /> Date :
+		Facility :<br /> <br /> Date :
 	</div>
 	<div class="col-xs-5 col-md-5 col-sm-5">
-		${booking.facility.name } <br /><br />
+		${booking.facility.name } <br /> <br />
 		<fmt:formatDate value="${booking.date }" pattern="dd-MM-yyyy" />
 	</div>
-	<br /><br /><br />
-	<hr/>
+	<br />
+	<br />
+	<br />
+	<hr />
 	<c:forEach items="${tslist}" var="ts">
-		<div class="[ form-group ] col-xs-4 col-md-4 col-sm-4">
-			<input type="checkbox" name="ts" value="${ts.id }" id="${ts.id }"
-				autocomplete="off" />
-			<div class="[ btn-group ]">
-				<label for="${ts.id }" class="[ btn btn-success ]"> <span
-					class="[ glyphicon glyphicon-ok ]"></span> <span> </span>
-				</label> <label for="${ts.id }" style="width: 120px"
-					class="[ btn btn-default active ]"> ${ts.timeslot } </label>
-			</div>
-		</div>
+		<c:choose>
+			<c:when test="${bslots.contains(ts.id) || mslots.contains(ts.id) }">
+				<div class="[ form-group ] col-xs-4 col-md-4 col-sm-4">
+					<input type="checkbox" name="ts" value="${ts.id }" id="${ts.id }"
+						autocomplete="off" disabled="disabled" />
+					<div class="[ btn-group ]">
+						<label for="${ts.id }" class="[ btn btn-danger disabled ]"> <span
+							class="[ glyphicon glyphicon-ok ]"></span> <span> </span>
+						</label> <label for="${ts.id }" style="width: 120px"
+							class="[ btn btn-default active ]"> ${ts.timeslot } </label>
+					</div>
+				</div>
+			</c:when>
+			<c:otherwise>
+				<div class="[ form-group ] col-xs-4 col-md-4 col-sm-4">
+					<input type="checkbox" name="ts" value="${ts.id }" id="${ts.id }"
+						autocomplete="off" />
+					<div class="[ btn-group ]">
+						<label for="${ts.id }" class="[ btn btn-success ]"> <span
+							class="[ glyphicon glyphicon-ok ]"></span> <span> </span>
+						</label> <label for="${ts.id }" style="width: 120px"
+							class="[ btn btn-default active ]"> ${ts.timeslot } </label>
+					</div>
+				</div>
+			</c:otherwise>
+		</c:choose>
 	</c:forEach>
+	<div class="col-xs-12 col-md-12 col-sm-12"
+		style="margin-left: 33%;">
+		<span class="btn btn-success disabled"></span> Available Slots <br/>
+		<span class="btn btn-danger disabled"></span> Already Booked or Under Maintenance!
+	</div>
 	<div class="col-xs-12 col-md-12 col-sm-12"
 		style="margin-left: 40%; margin-top: 30px;">
 		<input type="submit" value="submit" class="btn btn-success" />

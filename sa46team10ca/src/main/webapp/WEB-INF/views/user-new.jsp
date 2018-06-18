@@ -19,9 +19,10 @@
   	} );
   </script>
  <!-- end of insertion for date picker -->
-
+ 
 <form:form method="POST" modelAttribute="user"
 	action="${pageContext.request.contextPath}/user/create.html">
+
 	<table>
 		<tbody>
 			

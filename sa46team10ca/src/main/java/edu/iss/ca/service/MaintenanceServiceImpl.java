@@ -1,10 +1,12 @@
 package edu.iss.ca.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import edu.iss.ca.models.Maintenance;
 import edu.iss.ca.repository.MaintenanceRepository;
@@ -38,6 +40,12 @@ public class MaintenanceServiceImpl implements MaintenanceService {
 	@Override
 	public void removeMaintenance(Maintenance maintenance) {
 		maintenanceRepository.delete(maintenance);		
+	}
+
+	@Override
+	@Transactional
+	public ArrayList<Integer> findSlotsUnderMaintenance(Date date, Integer facId) {
+		return maintenanceRepository.findSlotsUnderMaintenance(date, facId);
 	}
 
 }

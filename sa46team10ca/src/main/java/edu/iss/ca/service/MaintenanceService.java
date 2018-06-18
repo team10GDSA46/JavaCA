@@ -1,6 +1,7 @@
 package edu.iss.ca.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import edu.iss.ca.models.Maintenance;
 
@@ -16,4 +17,5 @@ public interface MaintenanceService {
 
 	void removeMaintenance(Maintenance maintenance);
 
+	ArrayList<Integer> findSlotsUnderMaintenance(Date date, Integer facId);
 }
