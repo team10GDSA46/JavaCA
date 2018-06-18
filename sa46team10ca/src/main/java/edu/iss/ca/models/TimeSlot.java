@@ -29,9 +29,6 @@ public class TimeSlot {
 	
 	@Column(name = "timeslot")
 	private String timeslot;
-
-//	@OneToMany(mappedBy="timeslot", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-//	private List<Booking> bookinglist = new ArrayList<Booking>();
 	
 	@OneToMany(mappedBy="timeslot", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private List<Maintenance> maintenancelist = new ArrayList<Maintenance>();
@@ -51,14 +48,5 @@ public class TimeSlot {
 	public void setTimeslot(String timeslot) {
 		this.timeslot = timeslot;
 	}
-
-//	public TimeSlot(int id, String timeslot) {
-//		super();
-//		this.id = id;
-//		this.timeslot = timeslot;
-//	}
-//	
-//	public TimeSlot() {
-//	}	
 
 }

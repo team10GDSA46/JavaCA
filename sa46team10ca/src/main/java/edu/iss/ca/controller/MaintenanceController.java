@@ -32,9 +32,6 @@ public class MaintenanceController {
 	@Autowired
 	private FacilityService fService;
 	
-	//@Autowired
-	//private BookingService bService;
-	
 	@Autowired
 	private TimeSlotService tsService;
 	
@@ -140,13 +137,6 @@ public class MaintenanceController {
 		return null;
 	}
 	
-//	@ExceptionHandler(value = Exception.class)
-//	public String handleException(Exception e)
-//	{
-//		System.out.print("Exception");
-//		return "Exception";
-//	}
-	
 	@RequestMapping(value = "/list", method=RequestMethod.GET)
 	public ModelAndView facilityListPage() throws Exception
 	{
@@ -170,8 +160,7 @@ public class MaintenanceController {
 	public ModelAndView deleteMaintenance(@PathVariable String maintenanceid, final RedirectAttributes redirectAttributes)
 			throws Exception
 	{
-//		try
-//		{
+
 			ModelAndView mav = new ModelAndView("redirect:/maintenance/list");
 			Maintenance maintenance = mService.findMaintenance(Integer.parseInt(maintenanceid));
 			mService.removeMaintenance(maintenance);
@@ -179,13 +168,6 @@ public class MaintenanceController {
 
 			redirectAttributes.addFlashAttribute("message", message);
 			return mav;
-//		}
-//		catch(Exception e)
-//		{
-//			String exceptionOccurred = "Exception";
-//			if(exceptionOccurred.equalsIgnoreCase("Exception"))
-//				throw new Exception("Exception");
-//		}
-//		return null;
+
 	}
 }

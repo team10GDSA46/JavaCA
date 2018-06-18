@@ -211,20 +211,6 @@ public class FacilityController {
 		
 	}
 	
-//	@RequestMapping(value = "/booking/process", method = RequestMethod.POST)
-//	public ModelAndView processBooking(@ModelAttribute Booking booking, BindingResult result,
-//			final RedirectAttributes redirectAttributes) {
-//
-//		ModelAndView mav = new ModelAndView();
-//		String message = "New facility was successfully created.";
-//		
-//		bService.createBooking(booking);
-//		mav.setViewName("redirect:/facility/list");
-//
-//		redirectAttributes.addFlashAttribute("message", message);
-//		return mav;
-//	}
-	
 	@RequestMapping(value = "/booking/process", method = RequestMethod.POST)
 	public ModelAndView testing(@ModelAttribute Booking booking, BindingResult result,
 			final RedirectAttributes redirectAttributes,

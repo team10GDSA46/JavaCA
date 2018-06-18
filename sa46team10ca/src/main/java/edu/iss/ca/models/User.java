@@ -100,9 +100,5 @@ public class User {
 		this.email = email;
 	}
 	
-//	@OneToMany(cascade=CascadeType.ALL)
-//	@JoinColumn(name = "userid")
-//	private List<Booking> bookinglist = new ArrayList<Booking>();
-	
 	
 }
