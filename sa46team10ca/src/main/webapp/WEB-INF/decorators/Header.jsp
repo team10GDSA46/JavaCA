@@ -4,9 +4,6 @@
 	<h1 align="center">
 		<spring:message code="title.application" />
 	</h1>
-	<h2>
-
-	</h2>
 </div>
 
 
